@@ -10,4 +10,4 @@ def uppercase(str):
         else:
             maj = ord(str[i])
         sortie += "{}" .format(chr(maj))
-        print(sortie)
+    print(sortie)
