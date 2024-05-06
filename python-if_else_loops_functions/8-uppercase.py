@@ -7,4 +7,5 @@ def uppercase(str):
             maj = ord(str[i])
         if i < len(str) - 1:
             print("{}" .format(chr(maj)), end='')
-    print("{}" .format(chr(maj)))
+        else:
+            print("{}" .format(chr(maj)))
