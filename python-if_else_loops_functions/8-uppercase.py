@@ -6,6 +6,6 @@ def uppercase(str):
         else:
             maj = ord(str[i])
         if i < len(str) - 1:
-            print(chr(maj), end='')
+            print("{}" .format(chr(maj)), end='')
         else:
-            print(chr(maj))
+            print("{}" .format(chr(maj)))
