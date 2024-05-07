@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 if __name__ == "__main__":
-    with open hidden_4 as fichier:
-    for noms in fichier:
+    import hidden_4
+    for noms in dir(hidden_4):
         if noms[0] != '_':
             print("{}" .format(noms))
