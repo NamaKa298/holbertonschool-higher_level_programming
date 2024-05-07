@@ -1,4 +1,4 @@
-#!/usr/bin/python3.8.5
+#!/usr/bin/python3
 python --versionif __name__ == "__main__":
     import hidden_4
     for noms in dir(hidden_4):
