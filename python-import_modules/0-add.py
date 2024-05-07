@@ -2,5 +2,5 @@
 add = __import__('add_0').add
 a = 1
 b = 2
-__main__ = add(a, b)
-print ("{} + {} = {}".format(a, b,__main__))
+resultat = add(a, b)
+print ("{} + {} = {}".format(a, b, resultat))
