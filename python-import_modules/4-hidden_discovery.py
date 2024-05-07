@@ -1,5 +1,5 @@
-#!/usr/bin/python38
-if __name__ == "__main__":
+#!/usr/bin/python3.8.5
+python --versionif __name__ == "__main__":
     import hidden_4
     for noms in dir(hidden_4):
         if noms[:2] != '__':
