@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-python --versionif __name__ == "__main__":
+if __name__ == "__main__":
     import hidden_4
     for noms in dir(hidden_4):
         if noms[:2] != '__':
