@@ -4,18 +4,18 @@ def roman_to_int(roman_string):
         return 0
     if roman_string is None:
         return 0
-    dictionnaire_chiffre_romain={'I': 1, 'X': 10, 'V': 5, 'X': 10,
+    dict={'I': 1, 'X': 10, 'V': 5, 'X': 10,
     'L': 50, 'C': 100, 'D': 500, 'M': 1000}
     valeur = 0
     l =0
     for i in range(0, len(roman_string)-1):
-        if dictionnaire_chiffre_romain[roman_string[i]] >= dictionnaire_chiffre_romain[roman_string[i+1]]:
-            valeur += dictionnaire_chiffre_romain[roman_string[i]]
+        if dict[roman_string[i]] >= dict[roman_string[i+1]]:
+            valeur += dict[roman_string[i]]
         else:
-            valeur -= dictionnaire_chiffre_romain[roman_string[i]]
+            valeur -= dict[roman_string[i]]
         l += 1
-    if dictionnaire_chiffre_romain[roman_string[l]] > dictionnaire_chiffre_romain[roman_string[l-1]]:
-        valeur += dictionnaire_chiffre_romain[roman_string[l]]
+    if dict[roman_string[l]] > dict[roman_string[l-1]]:
+        valeur += dict[roman_string[l]]
     else:
-        valeur += dictionnaire_chiffre_romain[roman_string[l]]
+        valeur += dict[roman_string[l]]
     return(valeur)
