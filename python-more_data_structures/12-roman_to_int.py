@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 def roman_to_int(roman_string):
-    if not roman_string.isalpha():
+    if not roman_string.isalnum():
         return 0
     elif roman_string is None:
         return 0
