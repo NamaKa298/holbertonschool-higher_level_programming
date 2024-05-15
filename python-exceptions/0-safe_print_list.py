@@ -6,15 +6,15 @@ def safe_print_list(my_list=[], x=0):
         longueur += 1
     try:
         if x <= longueur:
-            for i in range(x):      
-                print(my_list[i], end = "")
+            for i in range(x):
+                print(my_list[i], end="")
                 nombre_elements += 1
             print("")
         elif x > longueur:
-            for i in range(longueur):      
-                print(my_list[i], end = "")
+            for i in range(longueur):
+                print(my_list[i], end="")
                 nombre_elements += 1
             print("")
-    except:
+    except TypeError:
         pass
     return nombre_elements
