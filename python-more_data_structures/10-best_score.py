@@ -9,4 +9,3 @@ def best_score(a_dictionary):
             best_score = a_dictionary[i]
             best_personne = i
     return best_personne
-
