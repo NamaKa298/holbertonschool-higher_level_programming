@@ -23,7 +23,7 @@
 
 >>> add_integer()
 
->>> add_integer(a, 4)
+>>> add_integer('a', 4)
 TypeError: a must be an integer
 
 >>> add_integer(2, 3)
