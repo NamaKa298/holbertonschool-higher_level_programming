@@ -1,0 +1,30 @@
+>>> add_integer = __import__('0-add_integer').add_integer
+
+>>> add_integer(1, 2)
+3
+
+>>> add_integer(2, 3)
+5
+
+>>> add_integer(3.5, 3.5)
+7
+
+>>> add_integer(2.2, 3)
+5
+
+>>> add_integer(2, 3.7)
+5
+
+>>> add_integer(2, 3)
+5
+
+>>> add_integer(2, 3)
+5
+
+>>> add_integer()
+
+>>> add_integer(a, 4)
+TypeError: a must be an integer
+
+>>> add_integer(2, 3)
+5
