@@ -18,3 +18,9 @@ TypeError: last_name must be a string
 
 >>> say_my_name("Charles", "Magne")
 My name is Charles Magne
+
+>>> say_my_name("Glou", "Glou")
+My name is Glou Glou
+
+>>> say_my_name("Stan", "Smith")
+My name is Stan Smith
