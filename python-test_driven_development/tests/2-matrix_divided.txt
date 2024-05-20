@@ -10,3 +10,8 @@ Cette fonction divise tous les éléments d'une matice
 Traceback (most recent call last):
     ...
 ZeroDivisionError: division by zero
+
+>>> matrix_divided([[3, "9"], [12, 15]], 1)
+Traceback (most recent call last):
+    ...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
