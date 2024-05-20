@@ -7,8 +7,9 @@ def text_indentation(text):
     if not isinstance(text, str):
         raise TypeError("text must be a string")
     for i in range(len(text)):
-        if text[i].isalnum() or text[i] == ' ' or text[i] == '!':
-            print(text[i], end = '')
-        else:
+        if text[i] == '.' or text[i] == '?' or text[i] == ':':
             print(text[i], end = '\n')
             print('\n')
+        else:
+            print(text[i], end = '')
+    
