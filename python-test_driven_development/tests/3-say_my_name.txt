@@ -1,0 +1,20 @@
+Test de la fonction ``say_my_name`` en Python
+======================
+
+Cette fonction renvoie "My name is" suivi des prénoms et noms correspondants
+-------------------
+
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+>>> say_my_name(1, "blabla")
+Traceback (most recent call last):
+    ...
+TypeError: first_name must be a string
+
+>>> say_my_name("blabla", 1)
+Traceback (most recent call last):
+    ...
+TypeError: last_name must be a string
+
+>>> say_my_name("Charles", "Magne")
+My name is Charles Magne
