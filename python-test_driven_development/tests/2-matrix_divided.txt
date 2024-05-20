@@ -1,0 +1,7 @@
+Test de la fonction ``matrix_divided`` en Python
+======================
+
+Cette fonction divise tous les éléments d'une matice
+-------------------
+
+
