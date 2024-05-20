@@ -10,5 +10,5 @@ def text_indentation(text):
         if text[i].isalnum() or text[i] == ' ' or text[i] == '!':
             print(text[i], end = '')
         else:
-            print(text[i])
-            print()
+            print(text[i], end = '\n')
+            print('\n')
