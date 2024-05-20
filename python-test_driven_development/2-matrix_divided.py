@@ -23,6 +23,6 @@ def matrix_divided(matrix, div):
             if isinstance(matrix[i][j] / div, float):
                 ligne_nouvelle_matrice.append(round(matrix[i][j] / div, 2))
             if isinstance(matrix[i][j] / div, int):
-                ligne_nouvelle_matrice.append(matrix[i][j] / div)
+                ligne_nouvelle_matrice.append(round(matrix[i][j] / div, 0))
         nouvelle_matrice.append(ligne_nouvelle_matrice)
     return nouvelle_matrice
