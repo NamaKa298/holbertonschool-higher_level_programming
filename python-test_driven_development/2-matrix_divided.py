@@ -20,6 +20,9 @@ def matrix_divided(matrix, div):
                 raise TypeError("div must be a number")
             if div == 0:
                 raise ZeroDivisionError("division by zero")
-            ligne_nouvelle_matrice.append(round(matrix[i][j] / div, 2))
+            if int(matrix[i][j] / div) != matrix[i][j] / div:
+                ligne_nouvelle_matrice.append(round(matrix[i][j] / div, 2))
+            elif int(matrix[i][j] / div) == matrix[i][j] / div:
+                ligne_nouvelle_matrice.append(int(matrix[i][j] / div))
         nouvelle_matrice.append(ligne_nouvelle_matrice)
     return nouvelle_matrice
