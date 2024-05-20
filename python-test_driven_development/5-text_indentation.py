@@ -12,4 +12,4 @@ def text_indentation(text):
         else:
             print(text[i])
             print()
-    print()
+    print(text[len(text)-1])
