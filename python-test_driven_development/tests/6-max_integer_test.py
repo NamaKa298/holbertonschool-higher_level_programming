@@ -13,4 +13,5 @@ class TestMaxInteger(unittest.TestCase):
         self.assertAlmostEqual(max_integer([5, 6, 3, 4]), 6)
         self.assertAlmostEqual(max_integer([5, 6, -1, 4]), 6)
         self.assertAlmostEqual(max_integer([-5, -6, -3, -4]), -3)
+        self.assertAlmostEqual(max_integer([1]), 1)
         self.assertAlmostEqual(max_integer([]), None)
