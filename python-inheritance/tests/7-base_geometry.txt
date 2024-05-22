@@ -25,10 +25,7 @@ True
 
 >>> BaseGeometry.integer_validator("age", 1)
 Traceback (most recent call last):
-      File "/usr/lib/python3.9/doctest.py", line 1336, in __run
-        exec(compile(example.source, filename, "single",
-      File "<doctest 7-base_geometry.txt[6]>", line 1, in <module>
-        BaseGeometry.integer_validator("age", 1)
+  ...
 TypeError: integer_validator() missing 1 required positional argument: 'value'
 
 >>> BaseGeometry.integer_validator("age", True)
