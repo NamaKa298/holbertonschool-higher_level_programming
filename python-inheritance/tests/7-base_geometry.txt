@@ -19,3 +19,6 @@ ValueError: distance must be greater than 0
 >>> bg = BaseGeometry()
 >>> isinstance(bg, BaseGeometry)
 True
+
+>>> hasattr(BaseGeometry, 'area')
+True
