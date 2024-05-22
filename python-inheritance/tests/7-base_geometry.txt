@@ -26,4 +26,9 @@ True
 >>> BaseGeometry.integer_validator("age", 1)
 Traceback (most recent call last):
   ...
-TypeError: integer_validator() missing 1 required positional argument: 'value'
+TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
+
+>>> BaseGeometry.integer_validator("age", True)
+Traceback (most recent call last):
+  ...
+TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
