@@ -1,0 +1,17 @@
+Test de la fonction ``nteger_validator`` en Python
+======================
+
+Cette fonction divise tous les éléments d'une matice
+-------------------
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+
+>>> BaseGeometry.integer_validator(BaseGeometry, "age", 0)
+Traceback (most recent call last):
+  ...
+ValueError: age must be greater than 0
+
+>>> BaseGeometry.integer_validator(BaseGeometry, "distance", -4)
+Traceback (most recent call last):
+  ...
+ValueError: distance must be greater than 0
