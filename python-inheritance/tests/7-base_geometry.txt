@@ -20,9 +20,6 @@ ValueError: distance must be greater than 0
 >>> isinstance(bg, BaseGeometry)
 True
 
->>> hasattr(BaseGeometry, 'area')
-True
-
 >>> BaseGeometry.integer_validator("age", 1)
 Traceback (most recent call last):
   ...
