@@ -5,6 +5,15 @@ Cette fonction divise tous les éléments d'une matice
 -------------------
 >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
+>>> bg = BaseGeometry()
+>>> isinstance(bg, BaseGeometry)
+True
+
+>>> hasattr(BaseGeometry, 'integer_validator')
+True
+
+>>> hasattr(BaseGeometry, 'area')
+True
 
 >>> BaseGeometry.integer_validator(BaseGeometry, "age", 0)
 Traceback (most recent call last):
@@ -16,21 +25,17 @@ Traceback (most recent call last):
   ...
 ValueError: distance must be greater than 0
 
->>> bg = BaseGeometry()
->>> isinstance(bg, BaseGeometry)
-True
-
->>> integer_validator("age", 1)
+>>> bg.integer_validator("age", 1)
 Traceback (most recent call last):
   ...
 TypeError: integer_validator() missing 1 required positional argument: 'value'
 
->>> BaseGeometry.integer_validator("age", True)
+>>> bg.integer_validator("age", True)
 Traceback (most recent call last):
   ...
 TypeError: integer_validator() missing 1 required positional argument: 'value'
 
->>> BaseGeometry.integer_validator("age", "4")
+>>> bg.integer_validator("age", "4")
 Traceback (most recent call last):
   ...
 TypeError: integer_validator() missing 1 required positional argument: 'value'
