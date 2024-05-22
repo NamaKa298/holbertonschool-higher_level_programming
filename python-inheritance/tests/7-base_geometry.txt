@@ -22,3 +22,8 @@ True
 
 >>> hasattr(BaseGeometry, 'area')
 True
+
+>>> BaseGeometry.integer_validator("age", 1)
+Traceback (most recent call last):
+  ...
+TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
