@@ -1,0 +1,16 @@
+Test de la fonction ``def print_sorted(self):`` en Python
+======================
+
+Cette fonction divise tous les éléments d'une matice
+-------------------
+>>> MyList = __import__('1-my_list').MyList
+>>> that_list = MyList([3, 9, 12, 15])
+>>> that_list.print_sorted()
+[3, 9, 12, 15]
+
+>>> that_list2 = MyList([15, 9, 12, 3])
+>>> that_list2.print_sorted()
+[3, 9, 12, 15]
+
+>>> MyList.print_sorted([9, 15, 12, 3])
+[3, 9, 12, 15]
