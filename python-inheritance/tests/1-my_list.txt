@@ -14,3 +14,6 @@ Cette fonction divise tous les éléments d'une matice
 
 >>> MyList.print_sorted([9, 15, 12, 3])
 [3, 9, 12, 15]
+
+>>> MyList.print_sorted([])
+[]
