@@ -7,19 +7,15 @@ Cette fonction divise tous les éléments d'une matice
 >>> that_list = MyList([3, 9, 12, 15])
 >>> that_list.print_sorted()
 [3, 9, 12, 15]
-[3, 9, 12, 15]
 
 >>> that_list2 = MyList([15, 9, 12, 3])
 >>> that_list2.print_sorted()
 [3, 9, 12, 15]
-[3, 9, 12, 15]
 
 >>> MyList.print_sorted([9, 15, 12, 3])
 [3, 9, 12, 15]
-[3, 9, 12, 15]
 
 >>> MyList.print_sorted([])
-[]
 []
 
 >>> print(MyList())
@@ -31,7 +27,6 @@ Cette fonction divise tous les éléments d'une matice
 [1]
 
 >>> MyList.print_sorted([9, -2, 12, 3])
-[-2, 3, 9, 12]
 [-2, 3, 9, 12]
 
 >>> new_list = MyList.print_sorted([9, -2, 12, 3])
