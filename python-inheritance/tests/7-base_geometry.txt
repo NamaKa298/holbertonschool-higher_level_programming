@@ -28,13 +28,8 @@ ValueError: distance must be greater than 0
 >>> BaseGeometry.integer_validator(BaseGeometry, "age", 1)
 
 
->>> BaseGeometry.integer_validator("age", True)
-Traceback (most recent call last):
-      File "/usr/lib/python3.10/doctest.py", line 1350, in __run
-        exec(compile(example.source, filename, "single",
-      File "<doctest 7-base_geometry.txt[8]>", line 1, in <module>
-        BaseGeometry.integer_validator("age", True)
-TypeError: integer_validator() missing 1 required positional argument: 'value'
+>>> BaseGeometry.integer_validator(BaseGeometry, "age", True)
+
 
 >>> BaseGeometry.integer_validator(BaseGeometry, "age", "4")
 Traceback (most recent call last):
