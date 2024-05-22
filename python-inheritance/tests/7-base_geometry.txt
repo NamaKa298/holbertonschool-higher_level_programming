@@ -53,4 +53,4 @@ TypeError: integer_validator() missing 1 required positional argument: 'value'
 >>> BaseGeometry.integer_validator("name", "John")
 Traceback (most recent call last):
   ...
-TypeError: name must be an integer
+TypeError: integer_validator() missing 1 required positional argument: 'value'
