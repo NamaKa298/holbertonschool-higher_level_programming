@@ -19,7 +19,7 @@ class Circle(Shape):
     '''Circle class inheriting from Shape and implementing area and perimeter'''
     
     def __init__(self, radius):
-        self.radius = radius
+        self.radius = abs(radius)
     
     def area(self):
         return math.pi * self.radius ** 2
