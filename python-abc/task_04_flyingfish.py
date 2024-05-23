@@ -1,25 +1,26 @@
 #!/usr/bin/env python3
 '''4. The Enigmatic FlyingFish - Exploring Multiple Inheritance'''
 
-class Fish(FlyingFish):
+
+class Fish:
     '''class Fish that inherits from FlyingFish'''
     def __init__(self):
         '''initialization of the class'''
-        FlyingFish.__init__(self)
+        Fish.__init__(self)
 
     def swim(self):
         '''méthode swim'''
-        print("The fish is swimming")
+        print("The flying fish is swimming")
 
     def habitat(self):
         '''méthode habitat'''
         print("The fish lives in water")
-    
-class Bird(FlyingFish):
+
+class Bird:
     '''class Bird that inherits from FlyingFish'''
     def __init__(self):
         '''initialization of the class'''
-        FlyingFish.__init__(self)
+        Bird.__init__(self)
 
     def fly(self):
         '''méthode fly'''
@@ -28,3 +29,21 @@ class Bird(FlyingFish):
     def habitat(self):
         '''méthode habitat'''
         print("The bird lives in the sky")
+
+class FlyingFish(Fish, Bird):
+    '''class FlyingFish'''
+    def __init__(self):
+        '''initialization of the class'''
+        pass
+
+    def swim(self):
+        '''méthode swim'''
+        print("The flying fish is swimming!")
+
+    def fly(self):
+        '''méthode fly'''
+        print("The flying fish is soaring!")
+
+    def habitat(self):
+        '''méthode habitat'''
+        print("The flying fish lives both in water and the sky!")
