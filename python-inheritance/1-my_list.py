@@ -11,3 +11,4 @@ class MyList(list):
         '''class MyList that inherits from list'''
         new_list = sorted(self)
         print(new_list)
+        return new_list
