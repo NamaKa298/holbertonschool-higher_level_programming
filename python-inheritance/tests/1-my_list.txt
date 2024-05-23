@@ -31,3 +31,5 @@ Cette fonction divise tous les éléments d'une matice
 
 >>> new_list = MyList.print_sorted([9, -2, 12, 3])
 [-2, 3, 9, 12]
+>>> new_list is None
+True
