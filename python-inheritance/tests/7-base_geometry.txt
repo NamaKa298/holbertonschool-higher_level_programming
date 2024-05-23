@@ -15,7 +15,7 @@ True
 >>> hasattr(BaseGeometry, 'area')
 True
 
->>> BaseGeometry.integer_validator(BaseGeometry, "age", 0)
+>>> BaseGeometry.integer_validator(BaseGeometry, "age", -1)
 Traceback (most recent call last):
   ...
 ValueError: age must be greater than 0
@@ -29,7 +29,9 @@ ValueError: distance must be greater than 0
 
 
 >>> BaseGeometry.integer_validator(BaseGeometry, "age", True)
-
+Traceback (most recent call last):
+  ...
+TypeError: age must be an integer
 
 >>> BaseGeometry.integer_validator(BaseGeometry, "age", "4")
 Traceback (most recent call last):
