@@ -3,7 +3,7 @@ from abc import ABC, abstractmethod
 import math
 
 class Shape(ABC):
-    '''Abstract class Shape with abstract methods area and perimeter'''
+    '''Classe abstraite Shape with méthodes abstraite aire et périmètre'''
     
     @abstractmethod
     def area(self):
@@ -16,7 +16,7 @@ class Shape(ABC):
         pass
 
 class Circle(Shape):
-    '''Circle class inheriting from Shape and implementing area and perimeter'''
+    '''Classe Circle inheriting de Shape et implémente une aire et un périmètre'''
     
     def __init__(self, radius):
         self.radius = abs(radius)
@@ -41,7 +41,7 @@ class Rectangle(Shape):
         return 2 * (self.width + self.height)
 
 def shape_info(shape):
-    '''Function to print area and perimeter of a shape'''
+    '''fonction qui affiche l'aire et le périmètre d'une forme géométrique'''
     print("Area: {}".format(shape.area()))
     print("Perimeter: {}".format(shape.perimeter()))
 
