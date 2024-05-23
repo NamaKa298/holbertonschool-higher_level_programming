@@ -2,21 +2,11 @@
 '''8. Rectangle'''
 
 
-class BaseGeometry:
-    '''class BaseGeometry (based on 7-base_geometry.py)'''
+BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
-    def area(self):
-        raise Exception("area() is not implemented")
-
-    def integer_validator(self, name, value):
-        if not isinstance(value, int) or type(value) is bool:
-            raise TypeError("{} must be an integer".format(name))
-        if value <= 0:
-            raise ValueError("{} must be greater than 0".format(name))
 
 class Rectangle(BaseGeometry):
     '''class Rectangle that inherits from BaseGeometry (7-base_geometry.py)'''
-
 
     def __init__(self, width, height):
         '''initialization of the class'''
