@@ -18,14 +18,14 @@ class Shape(ABC):
 class Circle(Shape):
     '''Circle class inheriting from Shape and implementing area and perimeter'''
     
-    def __init__(self, rayon):
-        self.rayon= abs(rayon)
+    def __init__(self, radius):
+        self.radius = radius
     
     def area(self):
-        return math.pi * self.rayon ** 2
+        return math.pi * self.radius ** 2
     
     def perimeter(self):
-        return 2 * math.pi * self.rayon
+        return 2 * math.pi * self.radius
 
 class Rectangle(Shape):
     '''Rectangle class inheriting from Shape and implementing area and perimeter'''
