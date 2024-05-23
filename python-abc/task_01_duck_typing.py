@@ -25,7 +25,7 @@ class Circle(Shape):
         return math.pi * abs(self.rayon) ** 2
     
     def perimeter(self):
-        return 2 * math.pi * self.radius
+        return 2 * math.pi * abs(self.rayon)
 
 class Rectangle(Shape):
     '''Rectangle class inheriting from Shape and implementing area and perimeter'''
