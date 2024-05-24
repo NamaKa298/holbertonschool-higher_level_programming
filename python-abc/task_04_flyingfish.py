@@ -3,7 +3,7 @@
 
 
 class Fish:
-    '''class Fish that inherits from FlyingFish'''
+    '''class Fish'''
     def __init__(self):
         '''initialization of the class'''
         Fish.__init__(self)
@@ -17,7 +17,7 @@ class Fish:
         print("The fish lives in water")
 
 class Bird:
-    '''class Bird that inherits from FlyingFish'''
+    '''class Bird'''
     def __init__(self):
         '''initialization of the class'''
         Bird.__init__(self)
@@ -31,7 +31,7 @@ class Bird:
         print("The bird lives in the sky")
 
 class FlyingFish(Fish, Bird):
-    '''class FlyingFish'''
+    '''class FlyingFish qui hérite de Fish et Bird'''
     def __init__(self):
         '''initialization of the class'''
         pass
