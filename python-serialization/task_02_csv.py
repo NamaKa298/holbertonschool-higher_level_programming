@@ -2,7 +2,9 @@
 '''2. Converting CSV Data to JSON Format'''
 
 
-import csv, json
+import csv
+import json
+
 
 def convert_csv_to_json(csv_file):
     ''' function that takes the CSV filename as\\
@@ -16,4 +18,4 @@ def convert_csv_to_json(csv_file):
             json.dump(data, file)
             return True
     except FileNotFoundError:
-            return False
+        return False
