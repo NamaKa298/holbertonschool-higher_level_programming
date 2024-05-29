@@ -10,7 +10,7 @@ def serialize_to_xml(dictionary, filename):
         save it to the given filename'''
     root = ET.Element("data")
     for key, value in dictionary.items():
-        enfant = ET.SubElement(root, key)
+        child = ET.SubElement(root, key)
         child.text = str(value)
 
     tree = ET.ElementTree(root)
@@ -21,7 +21,7 @@ def deserialize_from_xml(filename):
     '''Parse the XML file using ET.parse'''
     tree = ET.parse(filename)
     root = tree.getroot()
-    data = {}
+    dictionary = {}
     for child in root:
-        data[child.tag] = child.text
-    return data
+        dictionary[child.tag] = child.text
+    return dictionary
