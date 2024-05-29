@@ -10,7 +10,7 @@ def serialize_to_xml(dictionary, filename):
         save it to the given filename'''
     root=ET.Element("data")
     for key, value in dictionary.items():
-        enfant = ET.Element(key)
+        enfant = ET.SubElement(root, key)
         child.text = str(value)
         root.append(enfant)
 
