@@ -21,9 +21,7 @@ def fetch_and_save_posts():
     reponse = requests.get(url_JSONPlaceholder)
     if reponse.status_code == 200:
         donnees_parsees = reponse.json()
-        with open('posts.csv', 'w', newline='') as fichier:
-            csvwriter = csv.writer(fichier)
+        with open('posts.csv', mode='w') as fichier:
+            fichier_writer = csv.writer(fichier, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
             for donnee in donnees_parsees:
-                csvwriter.writerow([donnee.get('userId'), donnee.get('id'),
-                                    donnee.get('title')])
-    print("Saved the posts to posts.csv")
+                fichier_writer.writerow([donnee.get('userId'), donnee.get('id'), donnee.get('title')])
