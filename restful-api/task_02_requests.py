@@ -3,7 +3,6 @@
 import requests
 import csv
 
-
 def fetch_and_print_posts():
     '''fetches all post from JSONPlaceholder'''
     url_JSONPlaceholder = "https://jsonplaceholder.typicode.com/"
@@ -14,14 +13,21 @@ def fetch_and_print_posts():
         for donnee in donnees_parsees:
             print(donnee.get('title'))
 
-
 def fetch_and_save_posts():
     '''fetches all post from JSONPlaceholder'''
     url_JSONPlaceholder = "https://jsonplaceholder.typicode.com/"
     reponse = requests.get(url_JSONPlaceholder)
     if reponse.status_code == 200:
         donnees_parsees = reponse.json()
-        with open('posts.csv', mode='w') as fichier:
-            fichier_writer = csv.writer(fichier, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
-            for donnee in donnees_parsees:
-                fichier_writer.writerow([donnee.get('userId'), donnee.get('id'), donnee.get('title')])
+        for donnee in donnees_parsees:
+            post_data = [{'id': donnee['id'], 'title': donnee['title'], 'body': donnee['body']}]
+            with open('posts.csv', 'w', newline='', encoding='utf-8') as csvfile:
+            fieldnames = ['id', 'title', 'body']
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+            
+            # Écrire l'en-tête
+            writer.writeheader()
+            
+            # Écrire les données des posts
+            for post in post_data:
+                writer.writerow(post)
