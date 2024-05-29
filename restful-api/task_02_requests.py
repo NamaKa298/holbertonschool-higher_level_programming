@@ -4,30 +4,22 @@ import requests
 import csv
 
 def fetch_and_print_posts():
-    '''fetches all post from JSONPlaceholder'''
-    url_JSONPlaceholder = "https://jsonplaceholder.typicode.com/"
-    reponse = requests.get(url_JSONPlaceholder)
-    print("Status code: {}".format(reponse.status_code))
-    if reponse.status_code == 200:
-        donnees_parsees = reponse.json()
-        for donnee in donnees_parsees:
-            print(donnee.get('title'))
+    '''Fetches posts from the API and prints them'''
+    url = 'https://jsonplaceholder.typicode.com/posts'
+    response = requests.get(url)
+    posts = response.json()
+    for post in posts:
+        print(post.get('title'))
 
 def fetch_and_save_posts():
-    '''fetches all post from JSONPlaceholder'''
-    url_JSONPlaceholder = "https://jsonplaceholder.typicode.com/"
-    reponse = requests.get(url_JSONPlaceholder)
-    if reponse.status_code == 200:
-        donnees_parsees = reponse.json()
-        for donnee in donnees_parsees:
-            post_data = [{'id': donnee['id'], 'title': donnee['title'], 'body': donnee['body']}]
-            with open('posts.csv', 'w', newline='', encoding='utf-8') as csvfile:
-            fieldnames = ['id', 'title', 'body']
-            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-            
-            # Écrire l'en-tête
-            writer.writeheader()
-            
-            # Écrire les données des posts
-            for post in post_data:
-                writer.writerow(post)
+    '''Fetches posts from the API and saves them to a CSV file'''
+    url = 'https://jsonplaceholder.typicode.com/posts'
+    response = requests.get(url)
+    posts = response.json()
+    with open('posts.csv', 'w', newline='') as csvfile:
+        writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
+        for post in posts:
+            writer.writerow([post.get('userId'), post.get('id'), post.get('title')])
+if __name__ == '__main__':  
+    fetch_and_print_posts()
+    fetch_and_save_posts()
