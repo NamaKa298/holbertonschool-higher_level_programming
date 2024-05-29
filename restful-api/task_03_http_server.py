@@ -35,7 +35,9 @@ class Handler(http.server.BaseHTTPRequestHandler):
             error_message = {"error": "Endpoint not found"}
             self.wfile.write(json.dumps(error_message).encode('utf-8'))
 
+
 PORT = 8080
+
 
 with socketserver.TCPServer(("", PORT), Handler) as httpd:
     print("serving at port", PORT)
