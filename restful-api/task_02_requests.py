@@ -1,25 +1,31 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 '''2. Consuming and processing data from an API using Python'''
-import requests
+
+
 import csv
+import requests
+
 
 def fetch_and_print_posts():
-    '''Fetches posts from the API and prints them'''
-    url = 'https://jsonplaceholder.typicode.com/posts'
-    response = requests.get(url)
-    posts = response.json()
-    for post in posts:
-        print(post.get('title'))
+    '''fetches all post from JSONPlaceholder'''
+    response = requests.get("https://jsonplaceholder.typicode.com/posts")
+    print("Status Code: {}".format(response.status_code))
+    if response.status_code == 200:
+        posts = response.json()
+        for post in posts:
+            print(post['title'])
+
 
 def fetch_and_save_posts():
-    '''Fetches posts from the API and saves them to a CSV file'''
-    url = 'https://jsonplaceholder.typicode.com/posts'
-    response = requests.get(url)
-    posts = response.json()
-    with open('posts.csv', 'w', newline='') as csvfile:
-        writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
-        for post in posts:
-            writer.writerow([post.get('userId'), post.get('id'), post.get('title')])
-if __name__ == '__main__':  
-    fetch_and_print_posts()
-    fetch_and_save_posts()
+    '''fetches all post from JSONPlaceholder'''
+    response = requests.get("https://jsonplaceholder.typicode.com/posts")
+    if response.status_code == 200:
+        posts = response.json()
+        posts_list = [{"id": post["id"], "title": post["title"],
+                       "body": post["body"]} for post in posts]
+        with open('posts.csv', 'w', newline='') as csvfile:
+            fieldnames = ["id", "title", "body"]
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+            writer.writeheader()
+            for post in posts_list:
+                writer.writerow(post)
