@@ -14,17 +14,12 @@ def serialize_to_xml(dictionary, filename):
         child.text = str(value)
         root.append(enfant)
 
-    arbre = ET.ElementTree(root)
-
-    try:
-        tree.write(filename, encoding='utf-8', xml_declaration=True)
-        return True
-    except Exception as e:
-        print(f"An error occurred: {e}")
-        return False
+    tree = ET.ElementTree(root)
+    tree.write(filename, encoding='utf-8', xml_declaration=True)
 
 def deserialize_from_xml(filename):
-    ET.parse(filename)
+    '''Parse the XML file using ET.parse'''
+    tree = ET.parse(filename)
     root = tree.getroot()
     data = {}
     for child in root:
