@@ -14,7 +14,7 @@ class Handler(http.server.BaseHTTPRequestHandler):
         if self.path == '/data':
             data = {"name": "John", "age": 30, "city": "New York"}
             self.send_response(HTTPStatus.OK)
-            self.send_header('Content-type', 'text/plain')
+            self.send_header('Content-type', 'application/json')
             self.end_headers()
             self.wfile.write(json.dumps(data).encode('utf-8'))
         elif self.path == '/':
