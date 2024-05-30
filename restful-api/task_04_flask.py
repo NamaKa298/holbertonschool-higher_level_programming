@@ -6,18 +6,20 @@ from flask import Flask
 from flask import jsonify
 
 app = Flask(__name__)
-users ={
+users = {
     "jane":
-    {"username": "jane",
-     "name": "Jane",
-     "age": 28,
-     "city": "Los Angeles"
+    {
+        "username": "jane",
+        "name": "Jane",
+        "age": 28,
+        "city": "Los Angeles"
     },
     "john":
-    {"username": "john",
-     "name": "John",
-     "age": 30,
-     "city": "New York"
+    {
+        "username": "john",
+        "name": "John",
+        "age": 30,
+        "city": "New York"
     }
 }
 
