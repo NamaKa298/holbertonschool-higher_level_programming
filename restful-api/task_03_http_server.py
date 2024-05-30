@@ -36,7 +36,7 @@ class Handler(http.server.BaseHTTPRequestHandler):
             self.wfile.write(json.dumps(error_message).encode('utf-8'))
 
 
-PORT = 8080
+PORT = 8000
 
 
 with socketserver.TCPServer(("", PORT), Handler) as httpd:
