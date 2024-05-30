@@ -5,7 +5,6 @@
 import http.server
 import json
 import socketserver
-from http import HTTPStatus
 
 
 class Handler(http.server.BaseHTTPRequestHandler):
