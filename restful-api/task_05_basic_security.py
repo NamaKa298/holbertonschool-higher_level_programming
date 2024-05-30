@@ -9,10 +9,10 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
 auth = HTTPBasicAuth()
-app.config['JWT_SECRET_KEY'] = 'your_secret_key'  # Change this to a strong secret key
+app.config['JWT_SECRET_KEY'] = 'your_secret_key'
 jwt = JWTManager(app)
 
-# In-memory user storage
+
 users = {
     "user1": {"username": "user1", "password": generate_password_hash("password1"), "role": "user"},
     "admin1": {"username": "admin1", "password": generate_password_hash("password2"), "role": "admin"}
@@ -24,10 +24,10 @@ def verify_password(username, password):
         return username
     return None
 
-@app.route('/basic-protected', methods=['GET'])
+@app.route('/basic-protected')
 @auth.login_required
 def basic_protected():
-    return jsonify(message="Basic Auth: Access Granted")
+    return jsonify("Basic Auth: Access Granted")
 
 @app.route('/login', methods=['POST'])
 def login():
@@ -41,18 +41,18 @@ def login():
     access_token = create_access_token(identity={'username': username, 'role': users[username]['role']})
     return jsonify(access_token=access_token)
 
-@app.route('/jwt-protected', methods=['GET'])
+@app.route('/jwt-protected')
 @jwt_required()
 def jwt_protected():
     return jsonify(message="JWT Auth: Access Granted")
 
-@app.route('/admin-only', methods=['GET'])
+@app.route('/admin-only')
 @jwt_required()
 def admin_only():
     current_user = get_jwt_identity()
     if current_user['role'] != 'admin':
-        return jsonify({"error": "Admin access required"}), 403
-    return jsonify(message="Admin Access: Granted")
+        return jsonify({"403 Forbidden"}), 403
+    return jsonify("Admin Access: Granted")
 
 @jwt.unauthorized_loader
 def handle_unauthorized_error(err):
