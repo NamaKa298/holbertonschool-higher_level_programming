@@ -32,7 +32,8 @@ class Handler(http.server.BaseHTTPRequestHandler):
             self.send_response(HTTPStatus.OK)
             self.send_header('Content-type', 'application/json')
             self.end_headers()
-            info = {"version": "1.0", "description": "A simple API built with http.server"}
+            info = {"version": "1.0", "description": "A simple API\
+                    built with http.server"}
             self.wfile.write(json.dumps(info).encode('utf-8'))
         else:
             self.send_response(HTTPStatus.NOT_FOUND)
