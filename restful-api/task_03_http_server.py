@@ -45,8 +45,6 @@ class Handler(http.server.BaseHTTPRequestHandler):
 PORT = 8000
 
 
-def run(server_class=http.server.HTTPServer, handler_class=Handle, port=8000):
-    server_address = ('', port)
-    httpd = server_class(server_address, handler_class)
-    print(f"Démarrage du serveur HTTP sur le port {port}")
+with socketserver.TCPServer(("", PORT), Handler) as httpd:
+    print("serving at port", PORT)
     httpd.serve_forever()
