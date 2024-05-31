@@ -10,41 +10,47 @@ from werkzeug.security import generate_password_hash, check_password_hash
 app = Flask(__name__)
 auth = HTTPBasicAuth()
 
-
-users = {
-    "user1": {"username": "user1", "password": generate_password_hash("password1"), "role": "user"},
+users = {"user1": {"username": "user1", "password": generate_password_hash("password1"), "role": "user"},
     "admin1": {"username": "admin1", "password": generate_password_hash("password2"), "role": "admin"}
 }
-
 
 app.config['JWT_SECRET_KEY'] = 'your_secret_key'
 jwt = JWTManager(app)
 
+@app.route('/', methods=['GET'])
+def home():
+    return jsonify({"message": "Welcome to my application!"})
+
 
 @auth.verify_password
 def verify_password(username, password):
-    if username in users and \
-            check_password_hash(users.get(username), password):
+    user = users.get(username)
+    if user and check_password_hash(user["password"], password):
         return username
+    return None
 
 
 @app.route('/basic-protected', methods=['GET'])
 @auth.login_required
 def basic_protected():
-    return jsonify("Basic Auth: Access Granted")
+    return jsonify({"Basic Auth: Access Granted"})
 
 
-@app.route("/login", methods=["POST"])
+@app.route('/login', methods=['POST'])
 def login():
     username = request.json.get("username", None)
     password = request.json.get("password", None)
+    print(f"Received username: {username}")
+    print(f"Received password: {password}")
     if not username or not password:
         return jsonify({"message": "Missing username or password"}), 400
     user = users.get(username)
     if user and check_password_hash(user["password"], password):
-        access_token = create_access_token(identity=username)
+        print("Password check passed")
+        access_token = create_access_token(identity=user)
         return jsonify(access_token=access_token), 200
     else:
+        print("Password check failed")
         return jsonify({"message": "Bad username or password"}), 401
 
 
