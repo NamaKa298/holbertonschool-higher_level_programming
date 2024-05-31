@@ -22,14 +22,14 @@ jwt = JWTManager(app)
 def verify_password(username, password):
     user = users.get(username)
     if user and check_password_hash(user["password"], password):
-        return username
+        return user
     return None
 
 
 @app.route('/basic-protected', methods=['GET'])
 @auth.login_required
 def basic_protected():
-    return jsonify({"Basic Auth: Access Granted"})
+    return "Basic Auth: Access Granted"
 
 
 @app.route('/login', methods=['POST'])
