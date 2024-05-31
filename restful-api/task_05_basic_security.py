@@ -17,10 +17,6 @@ users = {"user1": {"username": "user1", "password": generate_password_hash("pass
 app.config['JWT_SECRET_KEY'] = 'your_secret_key'
 jwt = JWTManager(app)
 
-@app.route('/', methods=['GET'])
-def home():
-    return jsonify({"message": "Welcome to my application!"})
-
 
 @auth.verify_password
 def verify_password(username, password):
