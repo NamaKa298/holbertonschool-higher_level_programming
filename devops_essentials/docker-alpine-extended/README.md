@@ -1,1 +1,1 @@
-1. Customize Your Alpine-based Docker Image 
+1. Customize Your Alpine-based Docker Image
