@@ -1,4 +1,4 @@
 -- ============================
 -- List databases
 -- ============================
-SHOW DATABASES
+SHOW DATABASES;
