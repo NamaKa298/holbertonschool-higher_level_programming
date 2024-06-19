@@ -19,3 +19,4 @@ if __name__ == "__main__":
                 ASC", (state_name_searched,))
     for i in cur:
         print(i)
+    cur.close()
