@@ -1,21 +1,31 @@
 #!/usr/bin/python3
-"""script that takes in an argument and displays all values\\
-    in the states table of hbtn_0e_0_usa where name matches the argument"""
+"""
+Module that display all values in the states table
+of a database where name matches the argument.
+"""
+
 import MySQLdb
 import sys
 
 if __name__ == "__main__":
-    db = MySQLdb.connect(
+
+    database = MySQLdb.connect(
+        host="localhost",
+        port=3306,
         user=sys.argv[1],
         passwd=sys.argv[2],
-        db=sys.argv[3],
-        port=3306
+        database=sys.argv[3]
     )
-    state_name_searched = sys.argv[4]
-    cur = db.cursor()
 
-    cur.execute("SELECT states.id, states.name FROM states WHERE\
-                states.name = %s ORDER BY states.id\
-                ASC", (state_name_searched,))
-    for i in cur:
-        print(i)
+    cursor = database.cursor()
+
+    cursor.execute("""SELECT * FROM states
+                      WHERE name LIKE BINARY '{}'
+                      ORDER BY states.id
+                   """.format(sys.argv[4]))
+
+    for row in cursor.fetchall():
+        print(row)
+
+    cursor.close()
+    database.close()
