@@ -17,3 +17,5 @@ if __name__ == "__main__":
                 WHERE states.name LIKE 'N%' ORDER BY id ASC")
     for i in cur:
         print(i)
+cur.close()
+db.close()
