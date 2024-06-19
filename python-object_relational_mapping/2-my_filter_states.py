@@ -14,8 +14,8 @@ if __name__ == "__main__":
     
     cur = db.cursor()
 
-    cur.execute("SELECT * FROM states WHERE\
-                states.name = %s ORDER BY states.id\
-                ASC", (sys.argv[4],))
+    cur.execute("SELECT states.id, states.name FROM states WHERE\
+                states.name LIKE BINARY '{}' ORDER BY states.id\
+                ASC".format(sys.argv[4]))
     for i in cur:
         print(i)
