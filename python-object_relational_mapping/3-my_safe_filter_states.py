@@ -11,11 +11,11 @@ if __name__ == "__main__":
         db=sys.argv[3],
         port=3306
     )
-    state_name_searched=sys.argv[4]
+    state_name_searched = sys.argv[4]
     cur = db.cursor()
 
     cur.execute("SELECT states.id, states.name FROM states WHERE\
                 states.name=%s ORDER BY states.id\
-                ASC",(state_name_searched,))
+                ASC", (state_name_searched,))
     for i in cur:
         print(i)
