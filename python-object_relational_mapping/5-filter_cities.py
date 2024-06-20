@@ -15,7 +15,8 @@ if __name__ == "__main__":
 
     cur.execute("SELECT cities.name FROM cities JOIN\
                 states ON states.id = cities.state_id WHERE\
-                states.name LIKE BINARY %s ORDER BY cities.id ASC", (sys.argv[4], ))
+                states.name LIKE BINARY %s ORDER BY\
+                cities.id ASC", (sys.argv[4], ))
 
     rows = cur.fetchall()
     if rows is not None:
