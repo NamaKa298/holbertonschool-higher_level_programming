@@ -11,15 +11,13 @@ if __name__ == "__main__":
         db=sys.argv[3],
         port=3306
     )
-    state_name = sys.argv[4]
     cur: MySQLdb.cursors.Cursor = db.cursor()
 
     cur.execute("SELECT cities.name FROM cities JOIN\
                 states ON states.id = cities.state_id WHERE\
-                states.name=%s ORDER BY cities.id ASC", (state_name,))
+                states.name LIKE BINARY %s ORDER BY cities.id ASC", (sys.argv[4], ))
 
+    rows = cur.fetchall()
+    if rows is not None:
+        print(", ".join([city[0] for city in rows]))
     current_count = 0
-
-    for row in cur:
-        current_count += 1
-        print(row[0], end=", " if (current_count < cur.rowcount) else "\n")
