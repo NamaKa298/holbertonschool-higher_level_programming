@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-'''script that prints the first State object from the database hbtn_0e_6_usa    '''
+'''script that prints the first State\\
+    object from the database hbtn_0e_6_usa    '''
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -12,7 +13,7 @@ if (__name__ == "__main__"):
         sys.argv[3]), pool_pre_ping=True)
     session = sessionmaker(bind=engine)()
 
-    state=session.query(State).order_by(State.id).first()
+    state = session.query(State).order_by(State.id).first()
     if state:
         print("{}: {}".format(state.id, state.name))
     else:
