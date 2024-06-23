@@ -1,4 +1,5 @@
-import sys
+#!/usr/bin/python3
+# import sys
 
 def is_safe(board, row, col):
     for i in range(col):
