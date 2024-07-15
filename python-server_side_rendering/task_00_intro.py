@@ -19,12 +19,12 @@ def generate_invitations(template_content, attendees):
             for placeholder, value in attendee.items():
                 invitation = invitation.replace(f"{{{placeholder}}}", value if value is not None else "N/A")
             
-            output_filename = f"output_{index}.txt"
+            output_filename = "output_{}.txt".format(index)
             if os.path.exists(output_filename):
-                print(f"Le fichier {output_filename} existe déjà, veuillez vérifier.")
+                print("Le fichier {} existe déjà, veuillez vérifier.".format(output_filename))
                 continue
             
             with open(output_filename, "w") as file:
                 file.write(invitation)
         except Exception as e:
-            print(f"Une erreur est survenue lors de la génération de l'invitation pour {attendee.get('name', 'N/A')}: {e}")
+            print("Une erreur est survenue lors de la génération de l'invitation pour {}: {}".format(attendee.get('name', 'N/A'), e))
