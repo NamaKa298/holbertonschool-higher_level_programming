@@ -5,8 +5,7 @@ def generate_invitations(template_content, attendees):
     if not isinstance(template_content, str):
         print("Erreur : template n'est pas dans le bon format.")
         return
-    if not isinstance(attendees, list)
-    or not all(isinstance(attendee, dict) for attendee in attendees):
+    if not isinstance(attendees, list) or not all(isinstance(attendee, dict) for attendee in attendees):
         print("Erreur : attendees n'est pas dans le bon format.")
         return
     if not template_content:
