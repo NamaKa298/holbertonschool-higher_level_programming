@@ -21,12 +21,12 @@ def contact():
 
 @app.route('/items')
 def items():
-    with open('items.json') as f:
-        try:
+    try:
+        with open('items.json') as f:
             data = json.load(f)
             return render_template('items.html', items=data['items'])
-        except json.JSONDecodeError:
-            return render_template('items.html', items=None)
+    except Exception:
+        return render_template('items.html', items=None)
 
 
 if __name__ == '__main__':
