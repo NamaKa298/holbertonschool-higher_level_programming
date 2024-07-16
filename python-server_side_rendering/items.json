@@ -1,1 +1,3 @@
-json { "items": ["Python Book", "Flask Mug", "Jinja Sticker"] }
+{
+    "items": ["Python Book", "Flask Mug", "Jinja Sticker"]
+}
