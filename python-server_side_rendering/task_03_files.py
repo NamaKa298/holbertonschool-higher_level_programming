@@ -32,28 +32,34 @@ def items():
 @app.route('/products')
 def products():
     source = request.args.get('source')
-    id=request.args.get('id', type=int)
+    id = request.args.get('id', type=int)
     try:
-        products_found = []
         if source == 'json':
-            with open('products.json', 'r') as f:
-                data = json.load(f)
+            data = read_json('products.json')
         elif source == 'csv':
-            with open('products.csv', newline='') as f:
-                reader = csv.DictReader(f)
-                data = [row for row in reader]
+            data = read_csv('products.csv')
         else:
             return render_template('product_display.html', error="Wrong source")
+
         if id is not None:
-            data = [product for product in data if product['id'] == id or not id]
+            products_found = [product for product in data if product['id'] == id]
+            if not products_found:
+                return render_template('product_display.html', error="Product not found")
         else:
             products_found = data
-        if id and not products_found:
-            return render_template('product_display.html', error="Product not found")
-        return render_template('product_display.html', products=products_found)
-    except Exception:
-        return render_template('product_display.html', products=None)
 
+        return render_template('product_display.html', products=products_found)
+    except Exception as e:
+        return render_template('product_display.html', products=None, error=str(e))
+
+def read_json(file_path):
+    with open(file_path, 'r') as f:
+        return json.load(f)
+
+def read_csv(file_path):
+    with open(file_path, newline='') as f:
+        reader = csv.DictReader(f)
+        return [row for row in reader]
 
     
 if __name__ == '__main__':
