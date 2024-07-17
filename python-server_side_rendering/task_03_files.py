@@ -56,9 +56,12 @@ def read_json(file_path):
         return json.load(f)
 
 def read_csv(file_path):
+    products = []
     with open(file_path, newline='') as f:
         reader = csv.DictReader(f)
-        return [row for row in reader]
+        for row in reader:
+            products.append(row)
+    return products
 
     
 if __name__ == '__main__':
