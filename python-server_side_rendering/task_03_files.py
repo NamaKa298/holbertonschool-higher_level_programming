@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-import json, csv, os
+import json, csv
 
 app = Flask(__name__)
 
@@ -41,31 +41,23 @@ def products():
         else:
             return render_template('product_display.html', error="Wrong source")
 
-        if id is not None:
-            products_found = [product for product in data if product['id'] == id]
-            if not products_found:
+        if id:
+            data = [product for product in data if product['id'] == id]
+            if not data:
                 return render_template('product_display.html', error="Product not found")
-        else:
-            products_found = data
-        return render_template('product_display.html', products=products_found)
+        return render_template('product_display.html', products=data)
     except Exception as e:
         return render_template('product_display.html', error="Product not found")
 
-def read_json(file_name):
-    base_dir = os.path.dirname(__file__)
-    file_path = os.path.join(base_dir, file_name)
+def read_json(file_path):
     with open(file_path, 'r') as f:
         return json.load(f)
 
-def read_csv(file_name):
-    base_dir = os.path.dirname(__file__)
-    file_path = os.path.join(base_dir, file_name)
+def read_csv(file_path):
     products = []
     with open(file_path, newline='') as f:
         reader = csv.DictReader(f)
         for row in reader:
-            row['id'] = int(row['id'])
-            row['price'] = float(row['price'])
             products.append(row)
     return products
 
