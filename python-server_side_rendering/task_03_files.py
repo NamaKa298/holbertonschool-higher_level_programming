@@ -33,19 +33,24 @@ def items():
 def products():
     source = request.args.get('source')
     id = request.args.get('id', type=int)
-    if source == 'json':
-        data = read_json('products.json')
-    elif source == 'csv':
-        data = read_csv('products.csv')
-    else:
-        return render_template('product_display.html', error="Wrong source")
-    if id is not None:
-        products_found = [product for product in data if product['id'] == id]
-        if not products_found:
-            return render_template('product_display.html', error="Product not found")
-    else:
-        products_found = data
-    return render_template('product_display.html', products=products_found)
+    try:
+        if source == 'json':
+            data = read_json('products.json')
+        elif source == 'csv':
+            data = read_csv('products.csv')
+        else:
+            return render_template('product_display.html', error="Wrong source")
+
+        if id is not None:
+            products_found = [product for product in data if product['id'] == id]
+            if not products_found:
+                return render_template('product_display.html', error="Product not found")
+        else:
+            products_found = data
+
+        return render_template('product_display.html', products=products_found)
+    except Exception as e:
+        return render_template('product_display.html', error="Product not found")
 
 def read_json(file_path):
     with open(file_path, 'r') as f:
