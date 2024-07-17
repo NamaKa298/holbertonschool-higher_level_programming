@@ -38,19 +38,16 @@ def products():
         if source == 'json':
             with open('products.json', 'r') as f:
                 data = json.load(f)
-                return render_template('product_display.html', products=[product for product in data if (id and product['id'] == id or not id)] )
         elif source == 'csv':
-            with open('products.csv', 'r') as f:
-                data = csv.DictReader(f)
-                for product in data:
-                    if id and int(product['id']) == id:
-                        products_found.append(product)
-                    if not id:
-                        products_found.append(product)
-                return render_template('product_display.html', products=[product for product in data if (id and product['id'] == id or not id)] )
-        elif source not in ['json', 'csv']:
+            with open('products.csv', newline='') as f:
+                reader = csv.DictReader(f)
+                data = [row for row in reader]
+        else:
             return render_template('product_display.html', error="Wrong source")
-
+        if id is not None:
+            data = [product for product in data if product['id'] == id or not id]
+        else:
+            products_found = data
         if id and not products_found:
             return render_template('product_display.html', error="Product not found")
         return render_template('product_display.html', products=products_found)
