@@ -37,7 +37,7 @@ def products():
         data = read_json('products.json')
     elif source == 'csv':
         data = read_csv('products.csv')
-    elif source not in ['json', 'csv']:
+    else:
         return render_template('product_display.html', error="Wrong source")
     if id:
         data = [product for product in data if product['id'] == id]
