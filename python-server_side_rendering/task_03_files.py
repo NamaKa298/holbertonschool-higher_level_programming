@@ -60,6 +60,8 @@ def read_csv(file_path):
     with open(file_path, newline='') as f:
         reader = csv.DictReader(f)
         for row in reader:
+            row['id'] = int(row['id'])
+            row['price'] = float(row['price'])
             products.append(row)
     return products
 
