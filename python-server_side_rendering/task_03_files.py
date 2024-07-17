@@ -47,7 +47,6 @@ def products():
                 return render_template('product_display.html', error="Product not found")
         else:
             products_found = data
-
         return render_template('product_display.html', products=products_found)
     except Exception as e:
         return render_template('product_display.html', error="Product not found")
