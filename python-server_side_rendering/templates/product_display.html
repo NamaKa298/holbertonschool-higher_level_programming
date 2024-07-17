@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% include 'header.html' %}
+    <head>
+        <title>Product Display</title>
+    </head>
+    <body>
+        {% if products %}
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Price</th>
+                </tr>
+                <tbody>
+                    {% for product in products %}
+                    <tr>
+                        <td>{{ product }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </thead>
+        </table>
+        {% else %}
+            <p>No products found</p>
+        {% endif %}
+        {% include 'footer.html' %}
+    </body>
+</html>
